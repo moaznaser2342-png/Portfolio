@@ -106,6 +106,8 @@ const METRICS = [
 ];
 
 function Portfolio() {
+  const heroPhoto = Route.useLoaderData();
+
   return (
     <div className="min-h-screen bg-background">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
