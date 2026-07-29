@@ -135,16 +135,22 @@ function Portfolio() {
       <main id="top">
         {/* Hero */}
         <section className="relative flex min-h-screen items-center overflow-hidden">
-          {/* Hero background photo goes here — drop your image into src/assets
-              and render it as an <img> layer above this comment. */}
-          <div
-            className="absolute inset-0"
-            aria-hidden
-            style={{
-              background:
-                "radial-gradient(120% 90% at 78% 40%, oklch(0.3 0.05 250) 0%, oklch(0.18 0.035 258) 55%, oklch(0.14 0.03 258) 100%)",
-            }}
-          />
+          {heroPhoto?.path ? (
+            <img
+              src={`/api/public/hero-photo?v=${heroPhoto.updatedAt ?? ""}`}
+              alt="Portrait of Moaz Naser Khalaf Allah"
+              className="absolute inset-0 h-full w-full object-cover object-[70%_center]"
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              aria-hidden
+              style={{
+                background:
+                  "radial-gradient(120% 90% at 78% 40%, oklch(0.3 0.05 250) 0%, oklch(0.18 0.035 258) 55%, oklch(0.14 0.03 258) 100%)",
+              }}
+            />
+          )}
           <div
             className="absolute inset-0"
             style={{ backgroundImage: "var(--gradient-veil)" }}
