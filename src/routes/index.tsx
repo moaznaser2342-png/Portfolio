@@ -13,7 +13,6 @@ import {
   Users,
   ArrowRight,
 } from "lucide-react";
-import heroPortrait from "@/assets/hero-portrait.jpg";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
