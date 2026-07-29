@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Mail,
   Phone,
@@ -14,8 +14,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { getHeroPhoto } from "@/lib/site.functions";
 
 export const Route = createFileRoute("/")({
+  loader: () => getHeroPhoto(),
   head: () => ({
     meta: [
       { title: "Moaz Naser — AI & Computer Science Portfolio" },
@@ -104,6 +106,8 @@ const METRICS = [
 ];
 
 function Portfolio() {
+  const heroPhoto = Route.useLoaderData();
+
   return (
     <div className="min-h-screen bg-background">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
@@ -135,16 +139,22 @@ function Portfolio() {
       <main id="top">
         {/* Hero */}
         <section className="relative flex min-h-screen items-center overflow-hidden">
-          {/* Hero background photo goes here — drop your image into src/assets
-              and render it as an <img> layer above this comment. */}
-          <div
-            className="absolute inset-0"
-            aria-hidden
-            style={{
-              background:
-                "radial-gradient(120% 90% at 78% 40%, oklch(0.3 0.05 250) 0%, oklch(0.18 0.035 258) 55%, oklch(0.14 0.03 258) 100%)",
-            }}
-          />
+          {heroPhoto?.path ? (
+            <img
+              src={`/api/public/hero-photo?v=${heroPhoto.updatedAt ?? ""}`}
+              alt="Portrait of Moaz Naser Khalaf Allah"
+              className="absolute inset-0 h-full w-full object-cover object-[70%_center]"
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              aria-hidden
+              style={{
+                background:
+                  "radial-gradient(120% 90% at 78% 40%, oklch(0.3 0.05 250) 0%, oklch(0.18 0.035 258) 55%, oklch(0.14 0.03 258) 100%)",
+              }}
+            />
+          )}
           <div
             className="absolute inset-0"
             style={{ backgroundImage: "var(--gradient-veil)" }}
@@ -354,9 +364,12 @@ function Portfolio() {
       </main>
 
       <footer className="border-t border-border py-8">
-        <p className="mx-auto max-w-6xl px-6 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Moaz Naser Khalaf Allah
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} Moaz Naser Khalaf Allah</p>
+          <Link to="/admin" className="transition-colors hover:text-foreground">
+            Owner login
+          </Link>
+        </div>
       </footer>
     </div>
   );
