@@ -14,8 +14,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { getHeroPhoto } from "@/lib/site.functions";
 
 export const Route = createFileRoute("/")({
+  loader: () => getHeroPhoto(),
   head: () => ({
     meta: [
       { title: "Moaz Naser — AI & Computer Science Portfolio" },
