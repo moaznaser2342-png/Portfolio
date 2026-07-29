@@ -1,0 +1,4 @@
+CREATE POLICY "Owners can upload site photos" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'site-photos' AND public.has_role(auth.uid(), 'owner'));
+CREATE POLICY "Owners can update site photos" ON storage.objects FOR UPDATE TO authenticated USING (bucket_id = 'site-photos' AND public.has_role(auth.uid(), 'owner')) WITH CHECK (bucket_id = 'site-photos' AND public.has_role(auth.uid(), 'owner'));
+CREATE POLICY "Owners can read site photos" ON storage.objects FOR SELECT TO authenticated USING (bucket_id = 'site-photos' AND public.has_role(auth.uid(), 'owner'));
+CREATE POLICY "Owners can delete site photos" ON storage.objects FOR DELETE TO authenticated USING (bucket_id = 'site-photos' AND public.has_role(auth.uid(), 'owner'));
