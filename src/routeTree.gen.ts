@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicHeroPhotoRouteImport } from './routes/api/public/hero-photo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHeroPhotoRoute = ApiPublicHeroPhotoRouteImport.update({
+  id: '/api/public/hero-photo',
+  path: '/api/public/hero-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/hero-photo': typeof ApiPublicHeroPhotoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/hero-photo': typeof ApiPublicHeroPhotoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/hero-photo': typeof ApiPublicHeroPhotoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/api/public/hero-photo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/api/public/hero-photo'
+  id: '__root__' | '/' | '/api/public/hero-photo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicHeroPhotoRoute: typeof ApiPublicHeroPhotoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hero-photo': {
+      id: '/api/public/hero-photo'
+      path: '/api/public/hero-photo'
+      fullPath: '/api/public/hero-photo'
+      preLoaderRoute: typeof ApiPublicHeroPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicHeroPhotoRoute: ApiPublicHeroPhotoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
