@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { getHeroPhoto } from "@/lib/site.functions";
+import portrait from "@/assets/moaz-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   loader: () => getHeroPhoto(),
@@ -104,6 +105,13 @@ const METRICS = [
   { value: "288.38", label: "RMSE" },
   { value: "4.40%", label: "MAPE" },
 ];
+
+const HERO_STATS = [
+  { value: "0.927", label: "Model R² score" },
+  { value: "6+", label: "AI certifications" },
+  { value: "8.7K", label: "Records modeled" },
+];
+
 
 function Portfolio() {
   const heroPhoto = Route.useLoaderData();
