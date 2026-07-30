@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { getHeroPhoto } from "@/lib/site.functions";
+import portrait from "@/assets/moaz-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   loader: () => getHeroPhoto(),
@@ -105,6 +106,13 @@ const METRICS = [
   { value: "4.40%", label: "MAPE" },
 ];
 
+const HERO_STATS = [
+  { value: "0.927", label: "Model R² score" },
+  { value: "6+", label: "AI certifications" },
+  { value: "8.7K", label: "Records modeled" },
+];
+
+
 function Portfolio() {
   const heroPhoto = Route.useLoaderData();
 
@@ -139,33 +147,18 @@ function Portfolio() {
       <main id="top">
         {/* Hero */}
         <section className="relative flex min-h-screen items-center overflow-hidden">
-          {heroPhoto?.path ? (
-            <img
-              src={`/api/public/hero-photo?v=${heroPhoto.updatedAt ?? ""}`}
-              alt="Portrait of Moaz Naser Khalaf Allah"
-              className="absolute inset-0 h-full w-full object-cover object-[70%_center]"
-            />
-          ) : (
-            <div
-              className="absolute inset-0"
-              aria-hidden
-              style={{
-                background:
-                  "radial-gradient(120% 90% at 78% 40%, oklch(0.3 0.05 250) 0%, oklch(0.18 0.035 258) 55%, oklch(0.14 0.03 258) 100%)",
-              }}
-            />
-          )}
-          <div
-            className="absolute inset-0"
-            style={{ backgroundImage: "var(--gradient-veil)" }}
-            aria-hidden
-          />
-          <div className="relative mx-auto w-full max-w-6xl px-6 pt-28 pb-20">
+          <div className="hero-bloom absolute inset-0" aria-hidden />
+          <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-6 pt-32 pb-20 md:grid-cols-[1.15fr_0.85fr]">
             <Reveal>
-              <p className="eyebrow">Computer Science &amp; Artificial Intelligence</p>
-              <h1 className="mt-5 max-w-2xl text-4xl leading-[1.05] font-bold sm:text-6xl">
+              <p className="eyebrow text-primary">
+                Computer Science &amp; Artificial Intelligence
+              </p>
+              <h1 className="mt-5 text-4xl leading-[1.05] font-bold sm:text-6xl">
                 Moaz Naser
-                <span className="block text-gradient-gold">Khalaf Allah</span>
+                <span className="mt-2 block text-3xl sm:text-4xl">
+                  AI &amp; <span className="text-gradient-gold">Machine Learning</span>{" "}
+                  Engineer
+                </span>
               </h1>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 Fourth-year student at South Valley University building intelligent systems
@@ -181,14 +174,44 @@ function Portfolio() {
                 </a>
                 <a
                   href="#contact"
-                  className="inline-flex items-center rounded-md border border-border px-5 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+                  className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
                 >
-                  Contact me
+                  <Mail className="size-4" /> Work with me
                 </a>
+              </div>
+              <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6">
+                {HERO_STATS.map((s) => (
+                  <div key={s.label}>
+                    <dt className="font-display text-2xl font-bold text-primary sm:text-3xl">
+                      {s.value}
+                    </dt>
+                    <dd className="mt-1 text-xs text-muted-foreground sm:text-sm">
+                      {s.label}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <div className="relative mx-auto w-full max-w-sm">
+                <div className="portrait-halo" aria-hidden />
+                <div className="portrait-frame">
+                  <img
+                    src={
+                      heroPhoto?.path
+                        ? `/api/public/hero-photo?v=${heroPhoto.updatedAt ?? ""}`
+                        : portrait.url
+                    }
+                    alt="Portrait of Moaz Naser Khalaf Allah"
+                    className="aspect-square w-full rounded-full object-cover"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>
         </section>
+
 
         {/* About */}
         <section id="about" className="mx-auto max-w-6xl px-6 py-24">
