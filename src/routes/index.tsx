@@ -231,7 +231,7 @@ function Portfolio() {
         {/* About */}
         <section id="about" className="mx-auto max-w-6xl px-6 py-24">
           <Reveal>
-            <p className="eyebrow">About me</p>
+            <h2 className="eyebrow">About me</h2>
             <div className="mt-6 grid gap-10 md:grid-cols-[1.4fr_1fr]">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 Dedicated Computer Science and Artificial Intelligence student with a strong
