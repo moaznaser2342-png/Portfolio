@@ -78,11 +78,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Moaz Naser — AI & Computer Science Portfolio" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Moaz Naser Khalaf Allah — Computer Science & AI student working in machine learning, Python, and data analysis.",
+      },
+      { name: "author", content: "Moaz Naser Khalaf Allah" },
+      { property: "og:title", content: "Moaz Naser — AI & Computer Science Portfolio" },
+      {
+        property: "og:description",
+        content:
+          "Machine learning projects, certifications, and technical skills from a Computer Science & AI student at South Valley University.",
+      },
+
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
