@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Mail,
-  Phone,
-  MapPin,
+  Github,
+  Linkedin,
   GraduationCap,
   Award,
   Code2,
@@ -49,12 +49,10 @@ export const Route = createFileRoute("/")({
           jobTitle: "AI & Machine Learning Engineer",
           url: "https://moaz-naser.lovable.app/",
           email: "mailto:moaznaser2342@gmail.com",
-          telephone: "+201064936639",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Qena",
-            addressCountry: "EG",
-          },
+          sameAs: [
+            "https://github.com/moaznaser2342-png",
+            "https://www.linkedin.com/in/moaz-naser-63a059348",
+          ],
           alumniOf: {
             "@type": "CollegeOrUniversity",
             name: "South Valley University",
@@ -386,16 +384,26 @@ function Portfolio() {
                 <p className="mt-4 text-sm text-muted-foreground">Email</p>
                 <p className="mt-1 text-sm break-all">moaznaser2342@gmail.com</p>
               </a>
-              <a href="tel:+201064936639" className="surface-card block p-6">
-                <Phone className="size-5 text-primary" />
-                <p className="mt-4 text-sm text-muted-foreground">Phone</p>
-                <p className="mt-1 text-sm">010 6493 6639</p>
+              <a
+                href="https://github.com/moaznaser2342-png"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="surface-card block p-6"
+              >
+                <Github className="size-5 text-primary" />
+                <p className="mt-4 text-sm text-muted-foreground">GitHub</p>
+                <p className="mt-1 text-sm break-all">github.com/moaznaser2342-png</p>
               </a>
-              <div className="surface-card p-6">
-                <MapPin className="size-5 text-primary" />
-                <p className="mt-4 text-sm text-muted-foreground">Location</p>
-                <p className="mt-1 text-sm">Street 1, Bridge Dandara, Qena, Egypt</p>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/moaz-naser-63a059348"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="surface-card block p-6"
+              >
+                <Linkedin className="size-5 text-primary" />
+                <p className="mt-4 text-sm text-muted-foreground">LinkedIn</p>
+                <p className="mt-1 text-sm break-all">linkedin.com/in/moaz-naser</p>
+              </a>
             </div>
           </Reveal>
         </section>
@@ -404,11 +412,39 @@ function Portfolio() {
       <footer className="border-t border-border py-8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Moaz Naser Khalaf Allah</p>
-          <Link to="/admin" className="transition-colors hover:text-foreground">
-            Owner login
-          </Link>
+          <div className="flex items-center gap-3">
+            <a
+              href="mailto:moaznaser2342@gmail.com"
+              aria-label="Email"
+              className="rounded-full border border-border p-2 transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              <Mail className="size-4" />
+            </a>
+            <a
+              href="https://github.com/moaznaser2342-png"
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="GitHub"
+              className="rounded-full border border-border p-2 transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              <Github className="size-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/moaz-naser-63a059348"
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="LinkedIn"
+              className="rounded-full border border-border p-2 transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              <Linkedin className="size-4" />
+            </a>
+            <Link to="/admin" className="transition-colors hover:text-foreground">
+              Owner login
+            </Link>
+          </div>
         </div>
       </footer>
+
     </div>
   );
 }
