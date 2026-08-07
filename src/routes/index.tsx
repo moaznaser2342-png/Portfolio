@@ -181,8 +181,8 @@ function Portfolio() {
               <h1 className="mt-5 text-4xl leading-[1.05] font-bold sm:text-6xl">
                 Moaz Naser
                 <span className="mt-2 block text-3xl sm:text-4xl">
-                  AI &amp; <span className="text-gradient-gold">Machine Learning</span>{" "}
-                  Engineer
+                  AI &amp; <span className="text-gradient-gold">ML</span>{" "}
+                  Engineering Student
                 </span>
               </h1>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
