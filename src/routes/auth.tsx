@@ -67,7 +67,7 @@ function AuthPage() {
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
           {mode === "signup"
-            ? "The first account created becomes the site owner."
+            ? "Only the pre-approved owner email receives admin access."
             : "Sign in to manage your hero photo."}
         </p>
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">

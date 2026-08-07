@@ -14,6 +14,21 @@ export type Database = {
   }
   public: {
     Tables: {
+      owner_allowlist: {
+        Row: {
+          created_at: string
+          email: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+        }
+        Relationships: []
+      }
       site_settings: {
         Row: {
           hero_photo_url: string | null
