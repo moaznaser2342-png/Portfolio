@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Mail,
-  Phone,
-  MapPin,
+  Github,
+  Linkedin,
   GraduationCap,
   Award,
   Code2,
@@ -49,12 +49,10 @@ export const Route = createFileRoute("/")({
           jobTitle: "AI & Machine Learning Engineer",
           url: "https://moaz-naser.lovable.app/",
           email: "mailto:moaznaser2342@gmail.com",
-          telephone: "+201064936639",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Qena",
-            addressCountry: "EG",
-          },
+          sameAs: [
+            "https://github.com/moaznaser2342-png",
+            "https://www.linkedin.com/in/moaz-naser-63a059348",
+          ],
           alumniOf: {
             "@type": "CollegeOrUniversity",
             name: "South Valley University",
