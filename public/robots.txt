@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://moaz-naser.lovable.app/sitemap.xml
+

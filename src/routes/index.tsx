@@ -34,7 +34,39 @@ export const Route = createFileRoute("/")({
           "Machine learning projects, certifications, and technical skills from a Computer Science & AI student at South Valley University.",
       },
       { property: "og:type", content: "profile" },
+      { property: "og:url", content: "https://moaz-naser.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://moaz-naser.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Moaz Naser Khalaf Allah",
+          alternateName: "Moaz Naser",
+          jobTitle: "AI & Machine Learning Engineer",
+          url: "https://moaz-naser.lovable.app/",
+          email: "mailto:moaznaser2342@gmail.com",
+          telephone: "+201064936639",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Qena",
+            addressCountry: "EG",
+          },
+          alumniOf: {
+            "@type": "CollegeOrUniversity",
+            name: "South Valley University",
+          },
+          knowsAbout: [
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Python",
+            "Data Analysis",
+          ],
+        }),
+      },
     ],
   }),
   component: Portfolio,
@@ -199,7 +231,7 @@ function Portfolio() {
         {/* About */}
         <section id="about" className="mx-auto max-w-6xl px-6 py-24">
           <Reveal>
-            <p className="eyebrow">About me</p>
+            <h2 className="eyebrow">About me</h2>
             <div className="mt-6 grid gap-10 md:grid-cols-[1.4fr_1fr]">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 Dedicated Computer Science and Artificial Intelligence student with a strong
