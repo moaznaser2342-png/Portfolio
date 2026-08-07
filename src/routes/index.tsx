@@ -106,11 +106,6 @@ const METRICS = [
   { value: "4.40%", label: "MAPE" },
 ];
 
-const HERO_STATS = [
-  { value: "0.927", label: "Model R² score" },
-  { value: "6+", label: "AI certifications" },
-  { value: "8.7K", label: "Records modeled" },
-];
 
 
 function Portfolio() {
@@ -179,18 +174,6 @@ function Portfolio() {
                   <Mail className="size-4" /> Work with me
                 </a>
               </div>
-              <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6">
-                {HERO_STATS.map((s) => (
-                  <div key={s.label}>
-                    <dt className="font-display text-2xl font-bold text-primary sm:text-3xl">
-                      {s.value}
-                    </dt>
-                    <dd className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                      {s.label}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
             </Reveal>
 
             <Reveal delay={150}>
