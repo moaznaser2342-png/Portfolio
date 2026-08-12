@@ -186,7 +186,7 @@ function Portfolio() {
                 Moaz Naser
                 <span className="mt-2 block text-3xl sm:text-4xl">
                   AI &amp; <span className="text-gradient-gold">ML</span>{" "}
-                  Engineering Student
+                  Student
                 </span>
               </h1>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
