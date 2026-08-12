@@ -113,6 +113,10 @@ const SKILLS = [
 
 const CERTS = [
   {
+    title: "AI For Business — ITIDA / NTI Summer Training",
+    meta: "Jul 2026 · 120 hours (90 technical + 30 freelancing) · Score 79%",
+  },
+  {
     title: "Artificial Intelligence — NTI / Huawei Egyptian Talent Academy",
     meta: "Aug–Sep 2025 · 80 hours · Score 89.5%",
   },
