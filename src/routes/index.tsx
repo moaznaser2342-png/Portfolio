@@ -322,7 +322,7 @@ function Portfolio() {
                     <dt className="text-xs tracking-wide text-muted-foreground uppercase">
                       {m.label}
                     </dt>
-                    <dd className="mt-1 font-display text-xl font-semibold text-primary">
+                    <dd className="text-gradient-gold mt-1 font-mono text-xl font-semibold">
                       {m.value}
                     </dd>
                   </div>
